@@ -1,14 +1,17 @@
 package edu.cnm.bootcamp.caryl.helloworld;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import edu.cnm.bootcamp.caryl.helloworld.fragments.MainFragment;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+    implements MainFragment.OnFragmentInteractionListener{
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +34,11 @@ public class MainActivity extends AppCompatActivity {
         }
       }
     });
+  }
+
+
+  @Override
+  public void onFragmentInteraction(Uri uri) {
+
   }
 }

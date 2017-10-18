@@ -5,12 +5,14 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context="edu.cnm.bootcamp.caryl.helloworld.MainActivity">
+  app:layout_behavior="@string/appbar_scrolling_view_behavior"
+  tools:context="edu.cnm.bootcamp.caryl.helloworld.NavigationActivity"
+  tools:showIn="@layout/app_bar_navigation">
 
-  <fragment
-    android:id="@+id/main_fragment"
-    android:name="edu.cnm.bootcamp.caryl.helloworld.fragments.MainFragment"
+  <FrameLayout
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent"
+  />
 
 </android.support.constraint.ConstraintLayout>
