@@ -6,6 +6,9 @@
       android:id="@+id/nav_hello"
       android:title="Say Hello"/>
 
+<item
+    android:id="@+id/nav_imgur"
+    android:title="Go to Imgur"/>
   </group>
 
 

@@ -16,11 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import edu.cnm.bootcamp.caryl.helloworld.api.API;
+import edu.cnm.bootcamp.caryl.helloworld.fragments.ImgurFragment;
 import edu.cnm.bootcamp.caryl.helloworld.fragments.MainFragment;
 
 public class NavigationActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener,
-      MainFragment.OnFragmentInteractionListener {
+      MainFragment.OnFragmentInteractionListener,
+      ImgurFragment.OnFragmentInteractionListener{
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class NavigationActivity extends AppCompatActivity
     setContentView(R.layout.activity_navigation);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+
+    API.init(this);
 
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +102,18 @@ public class NavigationActivity extends AppCompatActivity
           = fragmentManager.beginTransaction();
       fragmentTransaction.replace(R.id.fragment_container, MainFragment.newInstance());
       fragmentTransaction.commit();
+    }
+
+    else if (id == R.id.nav_imgur) {
+      FragmentManager fragmentManager = getSupportFragmentManager();
+      FragmentTransaction fragmentTransaction
+          = fragmentManager.beginTransaction();
+      fragmentTransaction.replace(R.id.fragment_container,
+          ImgurFragment.newInstance("", "")
+
+      );
+      fragmentTransaction.commit();
+
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
